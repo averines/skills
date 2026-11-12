@@ -1,0 +1,8 @@
+# Local reference files and agent instructions: never include in the public repository.
+/src/
+/docs/
+/AGENTS.md
+
+# Python bytecode created by local checks.
+__pycache__/
+*.py[cod]
