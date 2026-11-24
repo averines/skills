@@ -27,8 +27,9 @@ stop. Do not create an initial commit just to start this workflow.
 An explicit request to run this cycle authorizes necessary separate fix commits
 unless the task or project rules prohibit them. For an automatic cycle, check
 that the task or project rules authorize commits. If commits are prohibited,
-leave verified edits uncommitted and report the cycle as incomplete. Do not
-start another round on the original target as a substitute for a fix commit.
+leave any verified fixes uncommitted. If fixes remain uncommitted, report the
+cycle as incomplete. Do not start another round on the original target as a
+substitute for a fix commit.
 Preserve user changes. Do not rewrite history or push.
 
 Do not start if the user excluded review or another process already manages it.
