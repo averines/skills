@@ -2,7 +2,7 @@
 name: review-cycle
 license: MIT
 description: Run a bounded review, verification, and correction cycle for an explicit Git commit or range. Use on request or after a substantive commit when the task and project rules allow review. Fixes and fix commits require authorization.
-compatibility: Requires Git, an explicit commit or range, and the code-review and fix-review skills. Independent delegation is optional; runtime checks depend on the project.
+compatibility: Requires Git, an explicit commit or range, and the code-review and fix-review skills. Independent review requires available and authorized delegation. Runtime checks depend on the project.
 metadata:
   author: averines
 ---
@@ -32,6 +32,9 @@ cycle as incomplete. Do not start another round on the original target as a
 substitute for a fix commit.
 Preserve user changes. Do not rewrite history or push.
 
+Require independent review when specified by the user, project rules, or the
+agreed plan. Otherwise treat it as optional.
+
 Do not start if the user excluded review or another process already manages it.
 Changes limited to status text or formatting may not need a full cycle if their
 meaning and behavior are unchanged. Assess effects before excluding generated code,
@@ -57,8 +60,8 @@ do not silently include it in the task.
    environment prerequisites, without self-assessment or desired findings.
    The reviewer must not delegate again. If delegation is unavailable, not
    authorized, or cannot provide separate context, review the target yourself
-   in a separate pass. State that it is not independent. This fallback can
-   support completion with limitations only when independent review is optional.
+   in a separate pass and report the lack of independence. If independent review
+   is required, this fallback leaves the cycle `incomplete`.
    Author and reviewer must not edit the same copy at the same time.
 2. **Coverage.** Check what the reviewer inspected and which version they ran.
    For interactive changes, the reviewer must run the affected workflow in its
@@ -138,4 +141,8 @@ Round N (<exact target>): defect N · hardening N · nit N · rejected N · repe
 Finish with original and final targets, all fix commits, actual checks, remaining
 finding states, and one status: `complete`, `complete with limitations`, or
 `incomplete: <reason>`. Include material limitations, residual risk, and useful
-“Proposed tasks”. Write backlog entries only under project policy or user instruction.
+“Proposed tasks”. If confirmed findings with distinct root causes expose the
+same gap in project checks, propose one preventive measure there. Describe the
+failure it should catch and how to verify the measure. Implement it only with
+separate authorization. Write backlog entries only under project policy or user
+instruction.

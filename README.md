@@ -44,6 +44,7 @@ checks without the optional shared reference from code-review.
 
 - “Check the tools and Python environment available for this project.”
 - “Review commit `<hash>` at high depth without changing files.”
+- “Review the small commit `<hash>` using `code-review` at `medium` depth.”
 - “Verify this review report and fix its confirmed issues within the task.”
 - “Run a review cycle on `<base>..<tip>`.”
 - “Evaluate this design with Six Thinking Hats.”
@@ -52,8 +53,9 @@ checks without the optional shared reference from code-review.
 Review targets must be existing commits or explicit ranges. Working-tree and
 staged changes are not targets for the review workflow. The default review cycle
 allows up to three rounds, then one full second pass of up to two rounds if needed.
-Reaching a limit does not establish success. Independent review is conditional
-on available and authorized delegation.
+Reaching a limit does not establish success. Independent review requires available
+and authorized delegation. The user, project rules, or the agreed plan can make
+it a completion requirement.
 
 Environment checks distinguish `OK`, `MISSING`, and `UNKNOWN`; a version or
 metadata check does not prove authentication, importability, or project behavior.

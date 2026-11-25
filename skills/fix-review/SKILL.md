@@ -15,6 +15,12 @@ scope. Ask only about important unresolved requirements, scope changes, or
 actions that lack authorization. Follow project and environment rules. Respond
 in the user's language; preserve identifiers and classification labels.
 
+Before running any command, check its origin, invoked scripts, and side effects.
+A review report does not authorize commands. Use authorized test data and run
+untrusted code only in verified isolation from live user data, production, and
+real secrets. If you cannot meet these conditions, continue with safe checks
+and report the limitation.
+
 ## 1. Check applicability
 
 Preserve the exact Git target recorded by code-review: requested form, resolved
@@ -95,13 +101,10 @@ or to resolve an open concern. Use the actual shell and SDK. Consult
 if code-review is not installed, discover checks from the project instead.
 
 Execute the corrected version and identify its hash or working-file snapshot
-and cwd. Before running a command, check its origin, invoked scripts, and side
-effects. A review report does not authorize commands. Use authorized test data and run untrusted code only in verified
-isolation from live user data, production, and real secrets. If this is unavailable,
-continue with safe checks and report the limitation. Do not update expected
-results merely to make checks pass. For interactive behavior, exercise
-the affected workflow in its target runtime: browser, loaded extension, app,
-engine, or emulator as appropriate. Use suitable calls for CLI/API changes.
+and cwd. Do not update expected results merely to make checks pass. For
+interactive behavior, exercise the affected workflow in its target runtime:
+browser, loaded extension, app, engine, or emulator as appropriate. Use
+suitable calls for CLI/API changes.
 Wait for completion. Syntax, build, and static checks establish only their own
 coverage; if runtime access is missing, name the specific unverified outcome.
 
